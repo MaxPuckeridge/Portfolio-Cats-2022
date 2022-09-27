@@ -1,3 +1,7 @@
+[![Checks](https://github.com/MaxPuckeridge/Portfolio-Cats-2022/actions/workflows/checks.yml/badge.svg)](https://github.com/MaxPuckeridge/Portfolio-Cats-2022/actions/workflows/checks.yml)
+
+[![CodeQL](https://github.com/MaxPuckeridge/Portfolio-Cats-2022/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/MaxPuckeridge/Portfolio-Cats-2022/actions/workflows/codeql-analysis.yml)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Setup
