@@ -9,5 +9,5 @@ export const fetchAllTags = async () => {
       set.add(value);
       return set;
     }, new Set<string>());
-  return Array.from(set);
+  return Array.from(set).sort();
 };
