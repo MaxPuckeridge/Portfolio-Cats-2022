@@ -10,8 +10,7 @@ n auto
 
 Install [pnpm](https://pnpm.io/installation)
 ```
-corepack enable
-corepack prepare pnpm@7.12.2 --activate
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
 Install node_modules with pnpm
