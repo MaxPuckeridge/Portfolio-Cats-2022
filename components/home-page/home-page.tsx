@@ -1,12 +1,10 @@
 import Link from 'next/link';
 
-import { styled } from '../../stitches.config';
+import { Column } from '@components/layout';
 
 export type HomePageProps = {
   tags: string[];
 };
-
-const Column = styled('div', { flexDirection: 'column', display: 'flex' });
 
 export const HomePage = ({ tags }: HomePageProps) => (
   <Column>

@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 
 import { fetchAllTags } from '@lib/fetcher/fetch-tags';
 
-import { HomePage, HomePageProps } from '@components/homepage';
+import { HomePage, HomePageProps } from '@components/home-page';
 
 const Page = (props: HomePageProps) => {
   return <HomePage {...props} />;
