@@ -6,6 +6,6 @@ const nextConfig = {
   images: {
     domains: ['cataas.com'],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
