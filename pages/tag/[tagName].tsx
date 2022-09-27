@@ -1,9 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Error from "next/error";
 import { TagPage, TagPageProps } from "@components/tagpage";
-import { createTagAPIEndpoint, TagAPIValue } from "@lib/api";
-import { createTagsAPIEndpoint } from "@lib/api/tags-api";
-import { fetcher } from "@lib/fetcher";
+import { fetchAllTags } from "@lib/fetcher/fetch-tags";
+import { fetchTagItems } from "@lib/fetcher/fetch-tag-items";
 
 type PageParams = {
   tagName: string;
@@ -26,20 +25,19 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     return { props: { invalid: true } };
   }
 
-  const initialItems = await fetcher<TagAPIValue[]>(createTagAPIEndpoint(tag));
+  const initialItems = await fetchTagItems(tag);
 
   return { props: { tag, initialItems } };
 };
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const tags = await fetcher<string[]>(createTagsAPIEndpoint());
+  const tags = await fetchAllTags();
   return {
     paths: tags
       .filter((tag) => !!tag)
       .map((tag) => ({
         params: {
-          // NextJs seems to be tripped up when these tags can include upper case characters
-          tagName: tag.toLowerCase(),
+          tagName: tag,
         },
       })),
     fallback: false,
