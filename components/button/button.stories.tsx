@@ -1,7 +1,7 @@
-import { Button } from ".";
+import { Button } from '.';
 
 const settings = {
-  title: "Button",
+  title: 'Button',
   component: Button,
 };
 

@@ -1,4 +1,4 @@
-import { Config } from "../config";
+import { Config } from '../config';
 
 export const createTagAPIEndpoint = (
   tag: string,

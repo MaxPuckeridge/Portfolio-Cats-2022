@@ -1,3 +1,3 @@
 export const Config = {
-  cataasBaseUrl: "https://cataas.com",
+  cataasBaseUrl: 'https://cataas.com',
 };

@@ -1,7 +1,8 @@
-import Image from "next/image";
-import { TagAPIValue } from "@lib/api";
-import { createCatAPIEndpoint } from "@lib/api/cat-api";
-import { Else, If, Then } from "react-if";
+import Image from 'next/image';
+import { Else, If, Then } from 'react-if';
+
+import { TagAPIValue } from '@lib/api';
+import { createCatAPIEndpoint } from '@lib/api/cat-api';
 
 export type TagPageProps = {
   tag: string;

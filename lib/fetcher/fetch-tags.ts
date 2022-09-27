@@ -1,5 +1,6 @@
-import { createTagsAPIEndpoint } from "@lib/api/tags-api";
-import { fetcher } from "./fetcher";
+import { createTagsAPIEndpoint } from '@lib/api/tags-api';
+
+import { fetcher } from './fetcher';
 
 export const fetchAllTags = async () => {
   const set = (await fetcher<string[]>(createTagsAPIEndpoint()))
@@ -9,5 +10,6 @@ export const fetchAllTags = async () => {
       set.add(value);
       return set;
     }, new Set<string>());
+
   return Array.from(set).sort();
 };

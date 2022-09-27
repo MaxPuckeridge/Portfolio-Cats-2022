@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prettier:fix": "prettier pages components hooks lib --write"
   },
   "dependencies": {
     "@components": "link:./components",
@@ -40,6 +41,9 @@
     "babel-loader": "^8.2.5",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
     "require-from-string": "^2.0.2",
     "typescript": "4.8.3",
     "webpack": "^5.74.0"

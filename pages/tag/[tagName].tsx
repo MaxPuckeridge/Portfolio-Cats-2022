@@ -1,8 +1,10 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import Error from "next/error";
-import { TagPage, TagPageProps } from "@components/tagpage";
-import { fetchAllTags } from "@lib/fetcher/fetch-tags";
-import { fetchTagItems } from "@lib/fetcher/fetch-tag-items";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Error from 'next/error';
+
+import { fetchTagItems } from '@lib/fetcher/fetch-tag-items';
+import { fetchAllTags } from '@lib/fetcher/fetch-tags';
+
+import { TagPage, TagPageProps } from '@components/tagpage';
 
 type PageParams = {
   tagName: string;
@@ -11,7 +13,7 @@ type PageParams = {
 type PageProps = TagPageProps | { invalid: true };
 
 const Page = (props: PageProps) => {
-  if ("invalid" in props) {
+  if ('invalid' in props) {
     return <Error statusCode={500} />;
   }
 
