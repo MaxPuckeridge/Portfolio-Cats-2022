@@ -1,43 +1,42 @@
-import { Button } from "@components/button";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Error from "next/error";
+import { TagPage, TagPageProps } from "@components/tagpage";
+import { createTagAPIEndpoint, TagAPIValue } from "@lib/api";
+import { createTagsAPIEndpoint } from "@lib/api/tags-api";
+import { fetcher } from "@lib/fetcher";
 
-type TagPageParams = {
+type PageParams = {
   tag: string;
 };
 
-type TagPageProps =
-  | {
-      tag: string;
-    }
-  | { invalid: true };
+type PageProps = TagPageProps | { invalid: true };
 
-const TagPage = (props: TagPageProps) => {
+const Page = (props: PageProps) => {
   if ("invalid" in props) {
-    return <div>Doh!</div>;
+    return <Error statusCode={500} />;
   }
 
-  return (
-    <div>
-      {props.tag}
-      <Button color="blue">Hello</Button>
-    </div>
-  );
+  return <TagPage {...props} />;
 };
 
-export const getStaticProps: GetStaticProps<TagPageProps, TagPageParams> =
-  async ({ params: { tag } = {} }) => {
-    if (!tag) {
-      return { props: { invalid: true } };
-    }
+export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
+  params: { tag } = {},
+}) => {
+  if (!tag) {
+    return { props: { invalid: true } };
+  }
 
-    return { props: { tag } };
-  };
+  const initialItems = await fetcher<TagAPIValue[]>(createTagAPIEndpoint(tag));
 
-export const getStaticPaths: GetStaticPaths<TagPageParams> = async () => {
+  return { props: { tag, initialItems } };
+};
+
+export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
+  const tags = await fetcher<string[]>(createTagsAPIEndpoint());
   return {
-    paths: [{ params: { tag: "cute" } }],
+    paths: tags.map((tag) => ({ params: { tag } })),
     fallback: false,
   };
 };
 
-export default TagPage;
+export default Page;

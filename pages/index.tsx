@@ -1,14 +1,15 @@
-import type { NextPage } from "next";
+import { GetStaticProps } from "next";
+import { createTagsAPIEndpoint } from "@lib/api/tags-api";
+import { fetcher } from "@lib/fetcher";
+import { HomePage, HomePageProps } from "@components/homepage";
 
-import { Button } from "@components/button";
-
-const Home: NextPage = () => {
-  return (
-    <div>
-      <Button color="blue">Hello</Button>
-      <Button color="purple">Hello</Button>
-    </div>
-  );
+const Page = (props: HomePageProps) => {
+  return <HomePage {...props} />;
 };
 
-export default Home;
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  const tags = await fetcher<string[]>(createTagsAPIEndpoint());
+  return { props: { tags } };
+};
+
+export default Page;

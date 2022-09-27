@@ -14,11 +14,14 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@components": "link:./components",
     "@stitches/react": "^1.2.8",
+    "@components": "link:./components",
+    "@hooks": "link:./hooks",
+    "@lib": "link:./lib",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
