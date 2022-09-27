@@ -4,7 +4,7 @@ import Error from 'next/error';
 import { fetchTagItems } from '@lib/fetcher/fetch-tag-items';
 import { fetchAllTags } from '@lib/fetcher/fetch-tags';
 
-import { TagPage, TagPageProps } from '@components/tagpage';
+import { TagPage, TagPageProps } from '@components/tag-page';
 
 type PageParams = {
   tagName: string;
