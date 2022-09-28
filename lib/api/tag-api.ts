@@ -6,7 +6,7 @@ export const createTagAPIEndpoint = (
   limit: number = 6
 ) => `${Config.cataasBaseUrl}/api/cats?tags=${tag}&skip=${skip}&limit=${limit}`;
 
-export type TagAPIValue = {
+export type CatDetails = {
   id: string;
   created_at: string;
   tags: string[];

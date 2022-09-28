@@ -6,7 +6,7 @@ export type HomePageProps = {
 };
 
 export const HomePage = ({ tags }: HomePageProps) => (
-  <Column>
+  <Column css={{ marginBottom: 80, gap: 20 }}>
     <Tags tags={tags} />
   </Column>
 );

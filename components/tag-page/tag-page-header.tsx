@@ -7,7 +7,7 @@ type TagPageHeaderProps = {
 };
 
 export const TagPageHeader = ({ tag }: TagPageHeaderProps) => (
-  <Row>
+  <Row css={{ width: '100%', boxSizing: 'border-box', padding: '0 20px' }}>
     <Header>{tag}</Header>
     <BackButton />
   </Row>

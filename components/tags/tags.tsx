@@ -9,7 +9,7 @@ const TagWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  gap: '10px',
+  gap: 4,
 });
 
 export const Tags = ({ tags }: TagsProps) => (

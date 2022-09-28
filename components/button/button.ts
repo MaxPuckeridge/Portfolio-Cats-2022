@@ -5,6 +5,7 @@ export const Button = styled('button', {
   borderRadius: 6,
   color: 'white',
   padding: '4px 12px',
+  cursor: 'pointer',
 
   variants: {
     color: {
@@ -14,12 +15,18 @@ export const Button = styled('button', {
         '&:hover': {
           backgroundColor: '$purple300',
         },
+        '&:active': {
+          backgroundColor: '$purple300',
+        },
       },
 
       blue: {
         backgroundColor: '$blue500',
         borderColor: '$blue700',
         '&:hover': {
+          backgroundColor: '$blue300',
+        },
+        '&:active': {
           backgroundColor: '$blue300',
         },
       },
