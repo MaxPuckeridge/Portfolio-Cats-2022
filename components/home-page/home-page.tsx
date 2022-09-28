@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import { Column } from '@components/layout';
+import { Tags } from '@components/tags';
 
 export type HomePageProps = {
   tags: string[];
@@ -8,10 +7,6 @@ export type HomePageProps = {
 
 export const HomePage = ({ tags }: HomePageProps) => (
   <Column>
-    {tags.map((tag) => (
-      <Link href={`/tag/${tag}`} key={tag}>
-        {tag}
-      </Link>
-    ))}
+    <Tags tags={tags} />
   </Column>
 );
